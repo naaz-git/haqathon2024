@@ -3,8 +3,10 @@ After cloning the repository, run the following commands in a WSL terminal to be
 1. `./env_setup.bash`
 2. `. .venv/bin/activate`
 Now you should be ready to run the application.
+# Create your own website first with dummy project details and fictitious data. 
+Example: https://naaznagori1123.atlassian.net/wiki/spaces/~71202047467a55ab2f4aaaa9555603c46317e0/pages/458754/Haqathon+Project
 
-# Verify website using bash file by running separately in bash cell (Not in powershell)
+# Verify website loads in the project using bash file by running separately in bash cell (Not in powershell)
 Check contents in the pull_text.bash:
 
 #!/bin/bash
