@@ -5,10 +5,10 @@ After cloning the repository, run the following commands in a WSL terminal to be
 2. `. .venv/bin/activate`
 
 Check contents in the env_setup.bash:   
-	#!/bin/bash
+	 #!/bin/bash
 
-	python3 -m venv .venv --prompt onboarding_buddy
-	. .venv/bin/activate \
+	 python3 -m venv .venv --prompt onboarding_buddy
+	 . .venv/bin/activate \
    	 && pip3 install --upgrade pip wheel \
     	 && pip3 install -r requirements.txt
     
@@ -71,3 +71,13 @@ https://naaznagori1123.atlassian.net/wiki/spaces/~71202047467a55ab2f4aaaa9555603
         String
         """
         return f"https://afreddo.atlassian.net/wiki/rest/api/content/{data_source}?expand=body.storage"
+
+ # Swap space
+ https://askubuntu.com/questions/178712/how-to-increase-swap-space
+ Go to root folder or any folder and create a swapfile : touch swapfile and use that for following set of commands
+ to set the memory, it is just like saying to your OS kernel, that use that space in your file system as an extra space for memeory
+	sudo swapoff -a                                                                                                               
+	sudo dd if=/dev/zero of=/local/mnt/swapfile bs=1M count=9k                                                       
+	sudo chmod 0600 /local/mnt/swapfile                                                                    
+	sudo mkswap /local/mnt/swapfile  # Set up a Linux swap area
+	sudo swapon /local/mnt/swapfile  # Turn the swap on
