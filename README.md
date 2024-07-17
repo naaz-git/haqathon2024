@@ -9,9 +9,9 @@ Example: https://naaznagori1123.atlassian.net/wiki/spaces/~71202047467a55ab2f4aa
 # Verify website loads in the project using bash file by running separately in bash cell 
 Check contents in the pull_text.bash:
 
-#!/bin/bash
+1. #!/bin/bash
 
-	export CURRENT_TIME=$(date +%Y%m%d%H%M%S)
+2.export CURRENT_TIME=$(date +%Y%m%d%H%M%S)
 
 	if [ ! -d $1 ]; then
 
