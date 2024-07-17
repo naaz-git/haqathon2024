@@ -5,12 +5,11 @@ After cloning the repository, run the following commands in a WSL terminal to be
 Now you should be ready to run the application.
 
 # Verify website using bash file by running separately in bash cell
-pull_text.bash :
+Check contents in the pull_text.bash:
 
 #!/bin/bash
 
 export CURRENT_TIME=$(date +%Y%m%d%H%M%S)
-
 if [ ! -d $1 ]; then
 
 	echo "creating temporary directory: $1"
@@ -27,7 +26,7 @@ python3 -mjson.tool > $1/num$3_raw_$CURRENT_TIME.json
 naz@NAGORI:~/haqathon2024/IrwinEarthens-main/IrwinEarthens-main/scripts$ ./pull_text.bash ./naz_temp_dir https://naaznagori1123.atlassian.net/wiki/rest/api/content/458754?expand=body.storage 1
 
 ### refer Retriever.py 
-    ## following code loads the data from website, create temp drectory to store json format file but later generates output text file in the 'model_data' directory and removes json file automatically to save space
+    following code loads the data from website, create temp drectory to store json format file but later generates output text file in the 'model_data' directory and removes json file automatically to save space
     
     def _raw_pull(self, data_source, order_num):
         """
