@@ -25,6 +25,10 @@ python3 -mjson.tool > $1/num$3_raw_$CURRENT_TIME.json
 
 naz@NAGORI:~/haqathon2024/IrwinEarthens-main/IrwinEarthens-main/scripts$ ./pull_text.bash ./naz_temp_dir https://naaznagori1123.atlassian.net/wiki/rest/api/content/458754?expand=body.storage 1
 
+return f"https://afreddo.atlassian.net/wiki/rest/api/content/{data_source}?expand=body.storage"
+Datasource refers to a number which should be fetched from the website:
+data_source = 458754 comes from my little website that I created on confluence pages
+https://naaznagori1123.atlassian.net/wiki/spaces/~71202047467a55ab2f4aaaa9555603c46317e0/pages/**458754**/Haqathon+Project
 ### refer Retriever.py 
     following code loads the data from website, create temp drectory to store json format file but later generates output text file in the 'model_data' directory and removes json file automatically to save space
     
