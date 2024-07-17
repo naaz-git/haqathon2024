@@ -14,7 +14,9 @@ Check contents in the env_setup.bash:
     
 Now you should be ready to run the application.
 # Create your own website first with dummy project details and fictitious data. 
-Example: https://naaznagori1123.atlassian.net/wiki/spaces/~71202047467a55ab2f4aaaa9555603c46317e0/pages/458754/Haqathon+Project
+Example: 
+1. https://naaznagori1123.atlassian.net/wiki/spaces/~71202047467a55ab2f4aaaa9555603c46317e0/pages/458754/Haqathon+Project
+2. https://afreddo.atlassian.net/wiki/external/YjZhNzYzNTVmMjc4NDUzNzg0MjQ4MTZmYTBkMWE4NGE
 
 # Verify website loads in the project using bash file by running separately in bash cell 
 Check contents in the pull_text.bash:
