@@ -5,7 +5,8 @@ After cloning the repository, run the following commands in a WSL terminal to be
 Now you should be ready to run the application.
 
 # Verify website using bash file by running separately in bash cell
-##pull_text.bash :
+pull_text.bash :
+
 #!/bin/bash
 
 export CURRENT_TIME=$(date +%Y%m%d%H%M%S)
