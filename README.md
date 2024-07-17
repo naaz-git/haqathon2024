@@ -9,9 +9,9 @@ Example: https://naaznagori1123.atlassian.net/wiki/spaces/~71202047467a55ab2f4aa
 # Verify website loads in the project using bash file by running separately in bash cell 
 Check contents in the pull_text.bash:
 
-1. #!/bin/bash
+	#!/bin/bash
 
-2.export CURRENT_TIME=$(date +%Y%m%d%H%M%S)
+	export CURRENT_TIME=$(date +%Y%m%d%H%M%S)
 
 	if [ ! -d $1 ]; then
 
@@ -22,6 +22,7 @@ Check contents in the pull_text.bash:
 	fi
 # curl command
 #curl command + userID + token copied from the atlassian website  + website Name + python utility for json file generation
+
 	curl -u naaznagori1123@gmail.com:ATATT3xFfGF0JVGvsx8Qf79HquV5O0lPqeKi2HMbxZzyKG-HAhqJ1-wDtA6-WJt9mAMxWz-c3PBJ7I-kPfa7-tcWTUXLmgkstmJ8jEIcXcJjxcIvUqQ4CAWvhadCCrP0qcCtpaz3nlhij7g0YveOSeVeLTDYwV3XF9HPpn9HV8ALK6t3mtln17I=EA600C61 $2 |
 
 	python3 -mjson.tool > $1/num$3_raw_$CURRENT_TIME.json
