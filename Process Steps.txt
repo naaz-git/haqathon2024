@@ -1,0 +1,193 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+1. Generate a Token:
+Go to Hugging Face Settings and create a new token.
+Copy the generated token.
+Log in using the Command Line Interface (CLI):
+Open your terminal or command prompt.
+Run the following command:
+huggingface-cli login
+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
+
+Paste your token when prompted.
+You’ll be asked if the token should be saved as a git credential. Press Enter (default to yes) if you plan to use git locally1.
+That’s it! You should now be logged in to the Hugging Face Hub
+
+https://huggingface.co/docs/huggingface_hub/en/quick-start#login-command
+pip install --upgrade huggingface_hub
+huggingface-cli login
+Alternatively, you can programmatically login using login() in a notebook or a script:
+
+from huggingface_hub import login
+login()
+
+Generate and copy token:
+https://huggingface.co/settings/tokens
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+2. QDC session [SNAPDRAGON ELITE DEVICE]
+
+How to Install Windows Subsystem for Linux (WSL2) Refer
+WSL is disabled by default on Windows. In the latest versions of Windows 10 and Windows 11, you can install the WSL environment with just a single command:
+
+wsl --install
+
+This command will automatically enable all the necessary Windows features required for WSL, install the Linux kernel update for WSL2, download the Ubuntu distribution (by default), and install it in WSL.
+
+C:\Users\HCKTest>wsl --install
+Ubuntu is already installed.
+Launching Ubuntu...
+Installing, this may take a few minutes...
+Please create a default UNIX user account. The username does not need to match your Windows username.
+For more information visit: https://aka.ms/wslusers
+Enter new UNIX username: naz
+New password: ************************************pwd is :intern
+Retype new password:
+passwd: password updated successfully
+The operation completed successfully.
+Installation successful!
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.153.1-microsoft-standard-WSL2 aarch64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+3. python installation on QDC
+Chk default
+naz@Snapdragon:~$ python3 --version
+Python 3.10.12
+
+4. 
+Copy the hawathon code and check dependency files and requirements.
+install them using bash file present in the code folder
+
+naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ chmod +x env_setup.bash
+naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ ./env_setup.bash
+The virtual environment was not created successfully because ensurepip is not
+available.  On Debian/Ubuntu systems, you need to install the python3-venv
+package using the following command.
+
+    apt install python3.10-venv
+Will come back to this again by using Conda
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ python3 gui.py
+Traceback (most recent call last):
+  File "/home/naz/code_haqathon/IrwinEarthens-main/gui.py", line 1, in <module>
+    from tkinter import *
+ModuleNotFoundError: No module named 'tkinter'
+naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ sudo apt install python3 python3-pip
+[sudo] password for naz:
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Package python3-pip is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Package 'python3-pip' has no installation candidate
+naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ pip3 install tkinter
+Command 'pip3' not found, but can be installed with:
+sudo apt install python3-pip
+naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ sudo apt install python3-pip
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Package python3-pip is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Package 'python3-pip' has no installation candidate
+naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ pip3 -v
+Command 'pip3' not found, but can be installed with:
+sudo apt install python3-pip
+naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ pip3 -version
+Command 'pip3' not found, but can be installed with:
+sudo apt install python3-pip
+naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ python3 gui.py
+Traceback (most recent call last):
+  File "/home/naz/code_haqathon/IrwinEarthens-main/gui.py", line 1, in <module>
+    from tkinter import *
+ModuleNotFoundError: No module named 'tkinter'^C
+naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ python -m pip3 install --upgrade pip
+Command 'python' not found, did you mean:
+  naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ python3 -m pip3 install --upgrade pip
+/usr/bin/python3: No module named pip3
+naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ which pip3
+naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ sudo apt update
+Hit:1 http://ports.ubuntu.com/ubuntu-ports jammy InRelease
+Get:2 http://ports.ubuntu.com/ubuntu-ports jammy-updates InRelease [128 kB]
+Get:3 http://ports.ubuntu.com/ubuntu-ports jammy-backports InRelease [127 kB]
+Get:4 http://ports.ubuntu.com/ubuntu-ports jammy-security InRelease [129 kB]
+Get:5 http://ports.ubuntu.com/ubuntu-ports jammy/universe arm64 Packages [13.9 MB]
+Get:6 http://ports.ubuntu.com/ubuntu-ports jammy/universe Translation-en [5652 kB]
+Get:7 http://ports.ubuntu.com/ubuntu-ports jammy/universe arm64 c-n-f Metadata [277 kB]
+
+Install Pip3:
+sudo apt install python3-pip
+
+Install pip3 Ubuntu and Debian Linux
+Ubuntu 18.04 has both Python 2 and Python 3 installed by default, and hence has two pip variants for each Python version. ‘pip’, refers to Python 2. pip3 refers to Python 3.
+Ubuntu 20.4 has only Python 3, but still requires a separate python-pip 3 installation.
+Procedure for installing pip3 on Ubuntu and Debian Linux:
+Enter the following command to update Linux:
+
+sudo apt update
+Enter the following command to install pip3:
+
+sudo apt install python3-pip
+The above command will also install all pip3 dependencies.
+To find the location where pip3 installs packages in Ubuntu Linux, enter:
+
+which pip3 
+Output should be similar to:
+
+/usr/bin/pip3
+4. Install TKINTER
+naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ sudo apt install
+ python3-tk
+
+4. INSTALL QAI HUB:
+ pip install "qai_hub_models[llama_v2_7b_chat_quantized]"
+
+python -m qai_hub_models.models.llama_v2_7b_chat_quantized.demo
+
+
+
+3. Size to run the mode is not sufficient
+https://askubuntu.com/questions/178712/how-to-increase-swap-space
+
+
+-------------------------------------------------------------------------------------------------------------------------------+
+| Recommended minimum memory of 40 GB memory (RAM + swap-space), found 18 GB.                                                   |
+| You might see process killed error due to OOM during export/demo.                                                             |
+|                                                                                                                               |
+| Please increase your swap-space temporarily as a work-around. It might slow down export but allow you to export successfully. |
+| You can refer to https://askubuntu.com/questions/178712/how-to-increase-swap-space for instructions                           |
+| or run following commands:                                                                                                    |
+|                                                                                                                               |
+| sudo swapoff -a                                                                                                               |
+| # bs=<amount of data that can be read/write>                                                                                  |
+| # count=number of <bs> to allocate for swapfile                                                                               |
+| # Total size = <bs> * count                                                                                                   |
+| #            = 1 MB * 40k = ~40GB                                                                                             |
+| sudo dd if=/dev/zero of=/swapfile bs=1M count=46k                                                                   |
+| # Set the correct permissions                                                                                                 |
+| sudo chmod 0600 /swapfile                                                                                           |
+|                                                                                                                               |
+| sudo mkswap /swapfile  # Set up a Linux swap area                                                                   |
+| sudo swapon /swapfile  # Turn the swap on                                                                           |
+|                                                                                                                               |
+| You can update `count` to increase swap space that works for machine.NOTE: above commands does not persist through reboot.    |
++-------------------------------------------------------------------------------------------------------------------------------+
+Resolve this error:
+Go to root folder or any folder and create a swapfile : touch swapfile and use that for following set of commands
+to set the memory, it is just like saying to your OS kernel, that use that space in your file system as an extra space for memeory
+sudo swapoff -a                                                                                                               
+sudo dd if=/dev/zero of=/local/mnt/swapfile bs=1M count=9k                                                       
+sudo chmod 0600 /local/mnt/swapfile                                                                    
+sudo mkswap /local/mnt/swapfile  # Set up a Linux swap area
+sudo swapon /local/mnt/swapfile  # Turn the swap on
