@@ -23,6 +23,8 @@ class ChatBot:
         self._setup_main_window()
         self.previous_team = ""
         self.botname = bot_name
+        self.mm = ModelManager()
+
         
     def run(self):
         self.window.mainloop()
@@ -87,6 +89,8 @@ class ChatBot:
             self.text_widget.see(END)
             
         msg = self.msg_entry.get()
+        print("Naaz", msg)
+
         self._insert_message(msg, "You")
             
     def _insert_message(self, msg, sender):
@@ -99,15 +103,17 @@ class ChatBot:
         self.text_widget.insert(END, msg1)
         self.text_widget.configure(state=DISABLED)
         
-        msg2 = f"{bot_name}: {get_response(msg)}\n\n"
+        msg2 = f"{bot_name}: {get_response(self.mm, msg)}\n\n"
         self.text_widget.configure(state=NORMAL)
         self.text_widget.insert(END, msg2)
         self.text_widget.configure(state=DISABLED)
         
         self.text_widget.see(END)
-        
+
+
 #boiler plate code guard
 #creates ChatBot instance and run
 if __name__ == "__main__":
     app = ChatBot()
+    
     app.run()
