@@ -1,5 +1,6 @@
 import os
 import qai_hub as hub
+from huggingfaceLamaModel import LamaModel
 from app import ChatApp as App
 from qai_hub_models.models.llama_v2_7b_chat_quantized.model import (
     DEFAULT_USER_PROMPT,
@@ -38,10 +39,13 @@ class ModelManager:
     """
     def __init__(self):
         self._context_data = ""
-        self._context_data_dir = "./model_data"
+        self._context_data_dir = "./model_data"        
+        self.aimodel = LamaModel()
+        self.aimodel.init()
+
         self.is_test = False
         self.available_target_runtimes = [TargetRuntime.QNN]
-        self.args = self.get_args()
+        '''self.args = self.get_args()
         self.num_splits=NUM_SPLITS
         self.MAX_OUTPUT_TOKENS = 10
         self.default_device = "Samsung Galaxy S24 (Family)"
@@ -50,7 +54,6 @@ class ModelManager:
         self.num_key_val_heads = NUM_KEY_VAL_HEADS
         self.model_split_map = MODEL_SPLIT_MAP
         self.hub_model_ids = self.args.hub_model_id.split(",")
-        self.hub_device = hub.Device(self.args.device)
         self.hub_device = hub.Device(self.args.device)
         
         self.prompt_processor = self.get_prompt_processor()
@@ -63,7 +66,7 @@ class ModelManager:
                 end_tokens=END_TOKENS,
                 num_past_key_val_heads=NUM_KEY_VAL_HEADS,
         )
-
+        '''
     def prompt_model(self, user_input):
         """
         Function that takes user_input and combines it with context data to query
@@ -78,7 +81,8 @@ class ModelManager:
         prompt = self._create_prompt(user_input)
 
         # TODO: UPDATE self._send_prompt_receive_response with LLM functionality
-        response = self._send_prompt_receive_response(prompt)
+        #response = self._send_prompt_receive_response(prompt)
+        response = self.aimodel.get_llama2_reponse(prompt, 70)
         return response
 
     def _create_prompt(self, user_input):
