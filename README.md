@@ -77,7 +77,8 @@ https://naaznagori1123.atlassian.net/wiki/spaces/~71202047467a55ab2f4aaaa9555603
  # Swap space
  https://askubuntu.com/questions/178712/how-to-increase-swap-space
  Go to root folder or any folder and create a swapfile : touch swapfile and use that for following set of commands
- to set the memory, it is just like saying to your OS kernel, that use that space in your file system as an extra space for memeory
+ to set the memory, it is just like saying to your OS kernel, that use that space in your file system as an extra space for memory
+ 
  		touch swapfile
    
 		sudo swapoff -a
