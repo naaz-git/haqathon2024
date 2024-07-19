@@ -1,5 +1,5 @@
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-1. Generate a Token:
+1. Generate a Token on huggingFace website to use their models:
 Go to Hugging Face Settings and create a new token.
 Copy the generated token.
 Log in using the Command Line Interface (CLI):
@@ -15,8 +15,8 @@ That’s it! You should now be logged in to the Hugging Face Hub
 https://huggingface.co/docs/huggingface_hub/en/quick-start#login-command
 pip install --upgrade huggingface_hub
 huggingface-cli login
-Alternatively, you can programmatically login using login() in a notebook or a script:
 
+Alternatively, you can programmatically login using login() in a notebook or a script:
 from huggingface_hub import login
 login()
 
@@ -24,9 +24,11 @@ Generate and copy token:
 https://huggingface.co/settings/tokens
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-2. QDC session [SNAPDRAGON ELITE DEVICE]
+2. QDC session [SNAPDRAGON ELITE DEVICE] and Linux Installation
 
 How to Install Windows Subsystem for Linux (WSL2) Refer
+https://itsfoss.com/reset-linux-password-wsl/
+
 WSL is disabled by default on Windows. In the latest versions of Windows 10 and Windows 11, you can install the WSL environment with just a single command:
 
 wsl --install
@@ -56,9 +58,10 @@ Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.153.1-microsoft-standard-WSL2 aarc
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 3. python installation on QDC
-Chk default
 naz@Snapdragon:~$ python3 --version
 Python 3.10.12
+Check default first if its not python 3.10 then install it
+
 
 4. 
 Copy the hawathon code and check dependency files and requirements.
@@ -146,18 +149,36 @@ which pip3
 Output should be similar to:
 
 /usr/bin/pip3
-4. Install TKINTER
+
+4. INSTALL QAI HUB:
+Installation:
+Sign up here: https://aihub.qualcomm.com/compute/models and get model token for qai hub
+You can setup a virtualenv using:
+python -m venv qai_hub_models_env && source qai_hub_models_env/bin/activate
+Once the environment is setup, you can install the base package using:
+
+pip install qai_hub_models
+qai-hub configure --api_token API_TOKEN < from QUALCOMM website setting
+
+
+https://github.com/quic/ai-hub-models/tree/main
+We currently support Python >=3.8 and <= 3.10. We recommend using a Python virtual environment (miniconda or virtualenv).
+
+Some models (e.g. YOLOv7) require additional dependencies. You can install those dependencies automatically using:
+
+pip install "qai_hub_models[yolov7]"
+pip install "qai_hub_models[llama_v2_7b_chat_quantized]"
+Run Lama demo:
+python -m qai_hub_models.models.llama_v2_7b_chat_quantized.demo
+
+6. Install TKINTER
 naz@Snapdragon:~/code_haqathon/IrwinEarthens-main$ sudo apt install
  python3-tk
 
-4. INSTALL QAI HUB:
- pip install "qai_hub_models[llama_v2_7b_chat_quantized]"
+7. install torch and other relavant dependencies.
+Now the App is ready to run
 
-python -m qai_hub_models.models.llama_v2_7b_chat_quantized.demo
-
-
-
-3. Size to run the mode is not sufficient
+8. Size to run the mode is not sufficient
 https://askubuntu.com/questions/178712/how-to-increase-swap-space
 
 
@@ -185,9 +206,26 @@ https://askubuntu.com/questions/178712/how-to-increase-swap-space
 +-------------------------------------------------------------------------------------------------------------------------------+
 Resolve this error:
 Go to root folder or any folder and create a swapfile : touch swapfile and use that for following set of commands
-to set the memory, it is just like saying to your OS kernel, that use that space in your file system as an extra space for memeory
+to set the memory, it is just like saying to your OS kernel, that use that space in your file system as an extra space for memory
+touch /local/mnt/swapfile
 sudo swapoff -a                                                                                                               
-sudo dd if=/dev/zero of=/local/mnt/swapfile bs=1M count=9k                                                       
+sudo dd if=/dev/zero of=/local/mnt/swapfile bs=1M count=9k 
 sudo chmod 0600 /local/mnt/swapfile                                                                    
 sudo mkswap /local/mnt/swapfile  # Set up a Linux swap area
 sudo swapon /local/mnt/swapfile  # Turn the swap on
+
+
+9.Step-by-step guide on how to setup and run Llama-2 model locally
+
+https://www.youtube.com/watch?v=AOzMbitpb00&t=1s
+https://huggingface.co/meta-llama/Llama-2-7b-chat-hf
+https://github.com/quic/ai-hub-models/tree/main/qai_hub_models/models/llama_v2_7b_chat_quantized
+
+Optimized for platform:
+[Wednesday 3:11 PM] Pouria Mahdavinia
+ai-hub-models/qai_hub_models/models/llama_v2_7b_chat_quantized/demo.py at main · quic/ai-hub-models · GitHub
+The Qualcomm® AI Hub Models are a collection of state-of-the-art machine learning models optimized for performance (latency, memory etc.) and ready to deploy on Qualcomm® devices. - quic/ai-hub-models
+ 
+ai-hub-models/qai_hub_models/models/_shared/llama at main · quic/ai-hub-models
+Its combination of these two 
+
