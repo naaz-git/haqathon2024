@@ -1,8 +1,8 @@
 from Retriever import *
 from ModelManager import ModelManager
 
-def get_response(msg):
-    mod = ModelManager()
+def get_response(mod, msg):
+    #mod = ModelManager()
     return mod.prompt_model(msg)
 
 def create_retriever(team_id):
